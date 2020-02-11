@@ -1,0 +1,2 @@
+class SurveyCreator < ApplicationRecord
+end

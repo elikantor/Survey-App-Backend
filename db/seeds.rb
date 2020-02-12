@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Question.destroy_all
+Survey.destroy_all
+SurveyCreator.destroy_all 
+
+user1 = SurveyCreator.create(username: "Eli", password: "123")
+survey1 = Survey.create(name: "A Survey", survey_creator: user1)
+question1 = Question.create(survey: survey1, text: "First Question")
+question2 = Question.create(survey: survey1, text: "second Question")

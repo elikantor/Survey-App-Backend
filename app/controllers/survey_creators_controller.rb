@@ -36,7 +36,7 @@ class SurveyCreatorsController < ApplicationController
 
     def persist
         wristband = encode_token({survey_creator_id: @survey_creator.id})
-        render json: {survey_creator: SurveyCreator.new(@survey_creator), token: wristband}
+        render json: {survey_creator: SurveyCreatorSerializer.new(@survey_creator), token: wristband}
     end
    
     private

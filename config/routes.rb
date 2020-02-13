@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   post '/login', to: 'survey_creators#login'
-  get './persist', to: 'survey_creators#persist'
+  get '/persist', to: 'survey_creators#persist'
 end

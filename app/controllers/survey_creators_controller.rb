@@ -13,6 +13,7 @@ class SurveyCreatorsController < ApplicationController
    
     # REGISTER
     def create
+      # byebug
       @survey_creator = SurveyCreator.create(survey_creator_params)
       if @survey_creator.valid?
         wristband = encode_token({ survey_creator_id: @survey_creator.id })
@@ -25,7 +26,7 @@ class SurveyCreatorsController < ApplicationController
     # LOGGING IN
     def login 
         @survey_creator = SurveyCreator.find_by(username: params[:username])
-        # byebug
+
         if @survey_creator && @survey_creator.authenticate(params[:password])
             wristband = encode_token({survey_creator_id: @survey_creator.id})
             render json: {survey_creator: SurveyCreatorSerializer.new(@survey_creator), token: wristband}
